@@ -4,9 +4,13 @@ FROM node:alpine3.16 as nodework
 
 WORKDIR /myapp
 
+RUN apt-get update
+
+RUN apt-get -y install nodejs
+
 COPY package.json .
 
-RUN install npm
+RUN apt-get -y install npm
 
 COPY . .
 
