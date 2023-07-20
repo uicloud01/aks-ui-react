@@ -4,11 +4,9 @@ WORKDIR /app
 
 COPY package.json ./
 
-RUN apt-get update
+COPY package-lock.json ./
 
-RUN apt-get -y install nodejs
-
-RUN apt-get -y install npm
+RUN npm install
 
 COPY . .
 # Copy your code in the docker image
