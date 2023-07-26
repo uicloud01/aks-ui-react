@@ -22,7 +22,7 @@ FROM node:10 AS ui-build
 
 WORKDIR /usr/src/app
 
-COPY my-app/ ./
+COPY my-app/ ./aks-ui-react
 
 RUN cd my-app && npm install && npm run build
 
