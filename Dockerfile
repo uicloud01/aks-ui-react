@@ -1,18 +1,29 @@
-FROM node:latest
+#FROM node:latest
 
-WORKDIR /app
+#WORKDIR /app
 
-COPY package.json ./
+#COPY package.json ./
 
-COPY package-lock.json ./
+#COPY package-lock.json ./
 
-RUN npm install
+#RUN npm install
 
-COPY . .
+#COPY . .
 
-EXPOSE 3080 
+#EXPOSE 3080 
+
 # Copy your code in the docker image
 
-CMD [ "npm","start" ]
+#CMD [ "npm","start" ]
 
 #CMD [ "npm","build" ]
+
+FROM node:10 AS ui-build
+
+WORKDIR /usr/src/app
+
+COPY my-app/ ./
+
+RUN cd my-app && npm install && npm run build
+
+EXPOSE 3080
