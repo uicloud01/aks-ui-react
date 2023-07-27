@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component ,useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Header } from './components/Header'
 import { Users } from './components/Users'
 import { DisplayBoard } from './components/DisplayBoard'
 import CreateUser from './components/CreateUser'
-import { getAllUsers, createUser } from './services/UserService'
+import { getAllUsers, createUser,getSamplePost } from './services/UserService'
 
 class App extends Component {
 
@@ -24,12 +24,17 @@ class App extends Component {
   }
 
   getAllUsers = () => {
-    getAllUsers()
+    getSamplePost()
+    
       .then(users => {
         console.log(users)
         this.setState({users: users, numberOfUsers: users.length})
       });
   }
+
+  /* useEffect(async () => {
+    const user= await getAllUsers()
+  },[]) */
 
   onChangeForm = (e) => {
       let user = this.state.user
