@@ -2,9 +2,9 @@ FROM centos:7.5.1804 AS ui-build
 WORKDIR /usr/src/app
 RUN yum install -y epel-release
 RUN yum update -y 
-COPY my-app/ ./my-app/
+
 RUN yum install -y nodejs
-RUN cd my-app 
+
 RUN yum install -y npm
 CMD ["npm", "-v"]
 RUN npm run build
