@@ -5,8 +5,8 @@ RUN yum update -y
 COPY my-app/ ./my-app/
 RUN yum install -y nodejs
 RUN cd my-app 
+RUN yum install -y npm
 CMD ["npm", "-v"]
-RUN yum install npm 
 RUN npm run build
 
 FROM centos:7.5.1804 AS server-build
