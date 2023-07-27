@@ -5,6 +5,7 @@ RUN yum update -y
 COPY my-app/ ./my-app/
 RUN yum install -y nodejs
 RUN cd my-app 
+CMD ["npm", "-v"]
 RUN yum install npm 
 RUN npm run build
 
