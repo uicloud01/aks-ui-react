@@ -3,10 +3,8 @@ WORKDIR /usr/src/app
 RUN yum install -y epel-release
 RUN yum update -y 
 COPY my-app/ ./my-app/
-RUN cd my-app
 RUN yum install -y nodejs
-RUN npm install
-RUN npm run build
+RUN cd my-app && npm install && npm run build
 
 FROM centos:7.5.1804 AS server-build
 WORKDIR /root/
